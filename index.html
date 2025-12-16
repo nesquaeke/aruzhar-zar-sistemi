@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D&D Zar Masası</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <footer class="scene-footer">
+      <div class="brand-name">Aruzhar</div>
+    </footer>
+    <div class="scene">
+      <main class="scene__content">
+        <!-- Sol: 4 Webcam (2x2 Grid) -->
+        <section class="webcam-section">
+          <div class="webcam-grid">
+            <div class="webcam-wrapper">
+              <div class="webcam-box">
+                <div class="webcam-feed">
+                  <div class="feed-placeholder">Webcam 1</div>
+                </div>
+                <div class="nameplate">
+                  <input type="text" value="Oyuncu 1" />
+                </div>
+              </div>
+              <div class="character-image">
+                <div class="char-placeholder">Karakter 1</div>
+              </div>
+            </div>
+            <div class="webcam-wrapper">
+              <div class="webcam-box">
+                <div class="webcam-feed">
+                  <div class="feed-placeholder">Webcam 2</div>
+                </div>
+                <div class="nameplate">
+                  <input type="text" value="Oyuncu 2" />
+                </div>
+              </div>
+              <div class="character-image">
+                <div class="char-placeholder">Karakter 2</div>
+              </div>
+            </div>
+            <div class="webcam-wrapper">
+              <div class="webcam-box">
+                <div class="webcam-feed">
+                  <div class="feed-placeholder">Webcam 3</div>
+                </div>
+                <div class="nameplate">
+                  <input type="text" value="Oyuncu 3" />
+                </div>
+              </div>
+              <div class="character-image">
+                <div class="char-placeholder">Karakter 3</div>
+              </div>
+            </div>
+            <div class="webcam-wrapper">
+              <div class="webcam-box">
+                <div class="webcam-feed">
+                  <div class="feed-placeholder">Webcam 4</div>
+                </div>
+                <div class="nameplate">
+                  <input type="text" value="Oyuncu 4" />
+                </div>
+              </div>
+              <div class="character-image">
+                <div class="char-placeholder">Karakter 4</div>
+              </div>
+            </div>
+            <div class="center-character">
+              <div class="char-placeholder">Merkez Karakter</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sağ: Harita Alanı (Zar alanı içinde) -->
+        <section class="map-section">
+          <div class="map-placeholder">Harita Alanı</div>
+          
+          <!-- Zar Alanı (Sağ Üst Köşe) -->
+          <div class="dice-section">
+            <div class="dice-controls">
+              <label class="modifier-label">
+                <span>Bonus/Penaltı</span>
+                <input type="number" id="modifier" value="0" class="modifier-input" />
+              </label>
+            </div>
+            
+            <div class="dice-visual">
+              <div class="d20-icon" id="d20Icon">D20</div>
+              <button id="rollButton" class="roll-button">
+                <span class="dice-emoji">🎲</span>
+                ZAR AT
+              </button>
+            </div>
+            
+            <div class="result-display" id="resultDisplay">
+              <div class="result-number" id="resultNumber">—</div>
+              <div class="result-breakdown" id="resultBreakdown"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="magic-particles" id="magicParticles"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

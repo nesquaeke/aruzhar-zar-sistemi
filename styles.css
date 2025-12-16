@@ -1,0 +1,461 @@
+:root {
+  font-family: "Cinzel", serif;
+  color: #f5f5ff;
+  background-color: #0a0a1a;
+  --gold: #f6c667;
+  --crimson: #f05353;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 30%, #1b1c3f, #0a0a1a 80%);
+  color: inherit;
+  position: relative;
+}
+
+.scene-footer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.brand-name {
+  font-family: "Cinzel", serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(246, 198, 103, 0.8),
+    0 0 40px rgba(246, 198, 103, 0.5);
+  letter-spacing: 0.15em;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+.scene__content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 20px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Webcam Bölümü */
+.webcam-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.webcam-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.webcam-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.webcam-wrapper:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.webcam-wrapper:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.webcam-wrapper:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.webcam-wrapper:nth-child(4) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.center-character {
+  grid-column: 2;
+  grid-row: 2;
+  background: rgba(13, 16, 37, 0.9);
+  border: 2px solid rgba(246, 198, 103, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.character-image {
+  background: rgba(13, 16, 37, 0.9);
+  border: 2px solid rgba(246, 198, 103, 0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.char-placeholder {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 8px rgba(246, 198, 103, 0.5);
+  text-align: center;
+  padding: 8px;
+}
+
+.webcam-box {
+  flex: 1;
+  position: relative;
+  background: rgba(13, 16, 37, 0.9);
+  border: 2px solid rgba(246, 198, 103, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.webcam-feed {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.feed-placeholder {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 10px rgba(246, 198, 103, 0.5);
+}
+
+.nameplate {
+  height: 40px;
+  padding: 0 12px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(246, 198, 103, 0.2);
+}
+
+.nameplate input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  font-family: "Cinzel", serif;
+}
+
+/* Zar Bölümü - Harita alanının sağ üst köşesinde */
+.dice-section {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(13, 16, 37, 0.95), rgba(21, 26, 52, 0.95));
+  border-radius: 12px;
+  border: 2px solid rgba(246, 198, 103, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  min-width: 140px;
+}
+
+.dice-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.modifier-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.modifier-input {
+  width: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(246, 198, 103, 0.3);
+  border-radius: 6px;
+  color: var(--gold);
+  padding: 3px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  outline: none;
+}
+
+.modifier-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 8px rgba(246, 198, 103, 0.5);
+}
+
+.dice-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.d20-icon {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(246, 198, 103, 0.8);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.d20-icon.rolling {
+  animation: d20Spin 1s ease-out;
+  opacity: 1;
+}
+
+@keyframes d20Spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.dice-emoji {
+  font-size: 14px;
+  margin-right: 6px;
+}
+
+.roll-button {
+  background: linear-gradient(135deg, rgba(246, 198, 103, 0.3), rgba(110, 90, 213, 0.3));
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(246, 198, 103, 0.8);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(246, 198, 103, 0.4),
+    0 0 30px rgba(246, 198, 103, 0.2);
+  font-family: "Cinzel", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.roll-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(246, 198, 103, 0.6),
+    0 0 60px rgba(246, 198, 103, 0.4);
+}
+
+.roll-button:active {
+  transform: scale(0.98);
+}
+
+.roll-button.rolling {
+  animation: buttonPulse 0.6s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(246, 198, 103, 0.4),
+      0 0 40px rgba(246, 198, 103, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(246, 198, 103, 0.8),
+      0 0 60px rgba(246, 198, 103, 0.6);
+  }
+}
+
+.result-display {
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.result-display.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.result-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(246, 198, 103, 0.8),
+    0 0 40px rgba(246, 198, 103, 0.5);
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.result-breakdown {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+
+.result-number.rolling {
+  animation: diceRollAnimation 1s ease-out;
+}
+
+@keyframes diceRollAnimation {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: rotateX(90deg) rotateY(180deg) scale(1.1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(180deg) scale(1.2);
+    opacity: 0.9;
+  }
+  75% {
+    transform: rotateX(270deg) rotateY(360deg) scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(720deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.result-number:hover {
+  transform: scale(1.1);
+}
+
+.result-number.critical-fail {
+  color: var(--crimson);
+  text-shadow: 0 0 30px rgba(240, 83, 83, 0.8),
+    0 0 60px rgba(240, 83, 83, 0.5);
+  animation: shake 0.8s ease;
+}
+
+.result-number.critical-hit {
+  color: #ffd700;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 1),
+    0 0 80px rgba(255, 215, 0, 0.8);
+  animation: glow 1.2s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px) rotate(-5deg); }
+  20%, 40%, 60%, 80% { transform: translateX(10px) rotate(5deg); }
+}
+
+@keyframes glow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Harita Bölümü */
+.map-section {
+  background: rgba(5, 6, 17, 0.4);
+  border-radius: 20px;
+  border: 2px dashed rgba(246, 198, 103, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  color: rgba(246, 198, 103, 0.4);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: "Cinzel", serif;
+  text-shadow: 0 0 20px rgba(246, 198, 103, 0.3);
+}
+
+/* Magic Particles */
+.magic-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.magic-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, var(--gold), transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold);
+  animation: particleFloat 2s ease-out forwards;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px) scale(0);
+  }
+}
